@@ -1,0 +1,10 @@
+<div class="parent">
+    <p>parent : Message from parent</p>
+    <input type="text" name="msg_parent" [(ngModel)]="msg_parent">
+    
+    
+    <app-child [msg]="msg_parent" (messageEvent)="receiveMessage($event)"></app-child>
+    <p>Message from child : {{msg_child}}</p>
+    </div>
+    
+    

@@ -1,0 +1,41 @@
+<div class="container">
+    <div>
+        <h1>user Managment</h1>
+        <label for="id">Id</label><br><br>
+        <input type="number" name="id" id="id" [(ngModel)]="user.id"><br>
+        <label for="name">Name</label><br><br>
+        <input type="string" name="name" id="name" [(ngModel)]="user.name"><br>
+        <label for="mobile">Mobile</label><br><br>
+        <input type="number" name="mobile" id="mobile" [(ngModel)]="user.mobile"><br>
+        <label for="email">Email</label><br><br>
+        <input type="string" name="email" id="email" [(ngModel)]="user.email"><br>
+        <label for="location">Location</label><br><br>
+        <input type="string" name="location" id="location" [(ngModel)]="user.location"><br>
+        <button (click)="addUser()">Add User</button>
+
+    </div>
+
+    <div>
+        <h1>User List</h1>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>Location</th>
+            </tr>
+            <tr *ngFor="let user of users">
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.mobile}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.location}}</td>
+                <td><button (click)="deleteUser(user.id)">Delete</button></td>
+                                 <td><button (click)="editUser(user.id)">Edit</button></td>
+
+
+            </tr>
+        </table>
+    </div>
+</div>

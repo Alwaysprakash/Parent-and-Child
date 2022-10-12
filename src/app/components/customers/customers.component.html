@@ -1,0 +1,80 @@
+<div class="container">
+    <div>
+        <h1>Customer ManagementForm</h1>
+        <p> {{message}}</p>
+        <form #tform="ngForm" (ngSubmit)="addCustomer(tform)">
+        <label><b>Name</b></label><br>
+            <input type="text" name="name" [(ngModel)]="cust.name" required><br>
+
+            <label><b>Email</b></label><br>
+            <input type="text" name="email" [(ngModel)]="cust.email" required><br>
+
+            <label><b>Mobile</b></label><br>
+            <input type="number" name="mobile" [(ngModel)]="cust.mobile" required><br>
+
+           <!-- <label><b>Gender</b></label><br>-->
+           <b>Gender :</b> <input type="radio" name="gender" id="gender" value="male" [(ngModel)]="cust.gender" required>male
+            <input type="radio" name="gender" id="gender" value="female" [(ngModel)]="cust.gender" required>female <br>
+<br>
+            <label for="Qualification"><b>Qualification</b></label>
+            <select name="qualification" id="qualification" [(ngModel)]="cust.qualification" required>
+              <option value="UG">UG</option>
+              <option value="PG">PG</option>
+              <option value="OTHERS">OTHERS</option>
+            </select><br>
+
+
+           <!--<label><b>Qualification</b></label><br>
+            <input type="text" name="qualification" [(ngModel)]="cust.qualification" required><br>
+           --> 
+            <label><b>Address</b></label><br>
+            <input type="text" name="address" [(ngModel)]="cust.address" required><br>
+
+            <label><b>Location</b></label><br>
+            <input type="text" name="location" [(ngModel)]="cust.location" required><br>
+
+            <label><b>Pincode</b></label><br>
+            <input type="number" name="pincode" [(ngModel)]="cust.pincode" required><br>
+
+            <br>
+            <button type="submit" [disabled]="!tform.valid" *ngIf="!isEdit">Add Customer</button> 
+            <input type="button"  *ngIf="isEdit" (click)="updateCustomer()" value="Update Customer">
+            
+        </form>
+       
+    </div>
+    <div>
+        <h1>Customer List</h1>
+        <table width="100%">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Gender</th>
+                <th>Qualification</th>
+                <th>Address</th>
+                <th>Location</th>
+                <th>Pincode</th>                
+
+            </tr>
+            <tr *ngFor="let cust of Customers">
+                <td>{{cust.id}}</td>
+                <td>{{cust.name}}</td>
+                <td>{{cust.email}}</td>
+                <td>{{cust.mobile}}</td>
+                <td>{{cust.gender}}</td>
+                <td>{{cust.qualification}}</td>
+                <td>{{cust.address}}</td>
+                <td>{{cust.location}}</td>
+                <td>{{cust.pincode}}</td>
+
+    <button (click)="deleteCustomer(cust.id)">Delete</button>
+
+    <button (click)="editCustomer(cust)">Edit</button>
+
+                
+            </tr>
+        </table>       
+    </div>
+    </div>

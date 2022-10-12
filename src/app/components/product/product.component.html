@@ -1,0 +1,33 @@
+<div class="demo">
+    <h1><b>PRODUCT COMPONENT</b></h1><br>
+    <label for="code"><b>Code</b></label><br>
+    <input type="number" name="code" id="code" [(ngModel)]="prod.code"><br>
+    <label for="name"><b>Name</b></label><br>
+    <input type=" text" name="name" id="name" [(ngModel)]="prod.name"><br>
+    <label for="desc"><b>Description</b></label><br>
+    <input type="text" name="desc" id="desc" [(ngModel)]="prod.desc"><br>
+    <label for="manu"><b>Manufacturer</b></label><br>
+    <input type="text" name="manu" id="manu" [(ngModel)]="prod.manu"><br>
+    <label for="price"><b>Price</b></label><br>
+    <input type="number" name="price" id="price" [(ngModel)]="prod.price"><br>
+    <br>
+    <button (click)="addProduct()"><b>Add Product</b></button>
+    <br>
+    <br>
+    <table class="container">
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Manufacturer</th>
+            <th>Price</th>
+        </tr>
+        <tr *ngFor=" let prod of products">
+            <td>{{prod.code}}</td>
+            <td>{{prod.name}}</td>
+            <td>{{prod.desc}}</td>
+            <td>{{prod.manu}}</td>
+            <td>{{prod.price}}</td>
+        </tr>
+    </table>
+</div>

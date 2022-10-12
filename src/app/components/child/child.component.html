@@ -1,0 +1,10 @@
+<div class="child">
+    <p>Message from parent : {{msg}}</p>
+    
+    <h1>Send Message</h1>
+    
+      
+      <input type="text" name="msgToParent" [(ngModel)]="msgToParent">
+    
+    <button (click)="sendMessage()">Send Msg To Parent</button>
+    </div>

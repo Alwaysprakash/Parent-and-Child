@@ -1,0 +1,48 @@
+
+
+<div class="container">
+    <div>
+        <h1>Corona component</h1>
+        <label for="code">code</label><br><br>
+        <input type="number" name="code" id="code" [(ngModel)]="corona.code"><br>
+        <label for="name">statename</label><br><br>
+        <input type="text" name="State name" id="State name" [(ngModel)]="corona.statename"><br>
+        <label for="active">active</label><br><br>
+        <input type="number" name="Active" id="Active" [(ngModel)]="corona.active"><br>
+        <label for="recovered">recovered</label><br><br>
+        <input type="number" name="Recovered" id="Recovered" [(ngModel)]="corona.recovered"><br>
+        <label for="death">death</label><br><br>
+        <input type="number" name="Death" id="Death" [(ngModel)]="corona.death"><br>
+        <label for="total">total</label>
+        <H2>Total{{(corona.active+corona.recovered+corona.death)}}</H2>         
+
+        <button (click)="addCorona()"><b>Add Corona</b></button>
+
+    </div>
+
+    <div>
+        <h1>Corona list</h1>
+        <table>
+            <tr>
+                <th>code</th>
+                <th>statename</th>
+                <th>active</th>
+                <th>recovered</th>
+                <th>death</th>
+                <th>total</th>
+            </tr>
+            <tr *ngFor="let corona of coronas">
+                <td>{{corona.code}}</td>
+                <td>{{corona.statename}}</td>
+                <td>{{corona.active}}</td>
+                <td>{{corona.recovered}}</td>
+                <td>{{corona.death}}</td>
+<td>corona.active-{{(corona.recovered+corona.death)}}</td>
+                <td><button (click)="deletecorona(corona.code)">Delete</button></td>
+                                 <td><button (click)="editCorona(corona.code)">update</button></td>
+
+
+            </tr>
+        </table>
+    </div>
+</div>

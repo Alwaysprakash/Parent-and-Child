@@ -1,0 +1,57 @@
+<div class="container">
+    <div>
+        <h1>Template Driven Form</h1>
+        <p> {{message}}</p>
+        <form #tform="ngForm" (ngSubmit)="addcorona(tform)">
+            <label><b>ID</b></label><br>
+            <input type="number" name="id" ngModel required #namefield="ngModel" 
+            [ngClass]="[(namefield.touched && !namefield.valid)?'field_invalid':'']"
+            [ngClass]="[namefield.valid ?'field_valid':'']"
+            placeholder="your id"><br>
+
+            <label><b>STSTE</b></label><br>
+            <input type="text" name="state" ngModel required  #stateControl="ngModel"placeholder="your state"><br>
+            <label><b>TOTAL</b></label><br>
+            <p *ngIf="stateControl.touched && !stateControl.valid">state should not be left blank</p>
+
+            <input type="number" name="total" ngModel required placeholder="total cases"><br>
+            <label><b>ACTIVE</b></label><br>
+            <input type="number" name="active" ngModel required placeholder="active cases"><br>
+            <label><b>RECOVERED</b></label><br>
+            <input type="number" name="recovered" ngModel required placeholder="recovered cases"><br>
+            <label><b>DEATH</b></label><br>
+            <input type="number" name="death" ngModel required placeholder="death cases"><br><br>
+            <button type="submit" [disabled]="!tform.valid">ADD CORONA</button> 
+            
+            
+        </form>
+    </div>
+
+
+    <div class="table table-bordered">
+        <h1>CORONA NEW</h1>
+        <table class="tab">
+            <tr>
+                <th>id</th>
+                <th>state</th>
+                <th>total</th>
+                <th>active</th>
+                <th>recovered</th>
+                <th>death</th>
+            </tr>
+            <tr *ngFor="let corona of coronas">
+                <td>{{corona.id}}</td>
+                <td>{{corona.state}}</td>
+                <td>{{corona.total}}</td>
+                <td>{{corona.active}}</td>
+                <td>{{corona.recovered}}</td>
+                <td>{{corona.death}}</td>
+                <td><button (click)="deletecorona(corona.id)">Delete</button></td>
+            </tr>
+        </table>
+
+
+
+
+    </div>
+</div>
